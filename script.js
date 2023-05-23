@@ -16,6 +16,11 @@ function Game() {
 	const element_coin_blue = document.getElementById("moneta-blue");
 	const element_coin_red = document.getElementById("moneta-red");
 
+	var top_1 = 0;
+	var left_1 = 0;
+
+	var top_2 = 0;
+	var left_2 = 0;
 
 	const CSS_root = document.querySelector(':root');
 
@@ -47,7 +52,26 @@ function Game() {
 	element_coin_red.style.left = Math.floor(Math.random() * 350) + "px";
 	element_coin_red.style.visibility = "visible";
 
-	console.log(Distance_());
+	
+	while( !(Distance_() < 10) ) {
+		console.log(Distance_());
+
+;
+
+		//element_arrow_up.onclick = Move_Up();
+		//element_arrow_left.onclick = Move_Left();
+		//element_arrow_right.onclick = Move_Right();
+		//element_arrow_down.onclick = Move_Down();
+
+
+
+	}
+
+
+
+
+
+
 
 /*	while ( !(Distance < 10) ) {
 		
@@ -62,12 +86,14 @@ function Game() {
 */
 
 	function Move_Up () {
-		if ( turn == true ) {
-			var element = element_coin_blue;
-		
-			var x = Random_();
 
-			if ( x + element.style.top > 0 ) {
+
+
+		var x = Math.floor(Math.random() * 50);
+
+		if ( turn == true ) {			
+
+			if ( x + element_coin_blue.style.top > 0 ) {
 				element_coin_blue.style.top = 0 + "px";
 			}
 			else {
@@ -77,11 +103,8 @@ function Game() {
 		}
 
 		if ( turn == false ) {
-			var element = element_coin_red;
-		
-			var x = Random_();
 
-			if ( x + element.style.top > -50 ) {
+			if ( x + element_coin_red.style.top > -50 ) {
 				element_coin_red.style.top = -50 + "px";
 			}
 			else {
@@ -89,9 +112,8 @@ function Game() {
 			}
 		
 		}
-
-
 	}
+	
 	function Move_Left () {}
 	function Move_Right () {}
 	function Move_Down () {}
@@ -122,42 +144,7 @@ function Game() {
 
 }
 
-function Move_Up () {
 
-	const element_coin_blue = document.getElementById("moneta-blue");
-	const element_coin_red = document.getElementById("moneta-red");
-
-	var x = Math.floor(Math.random() * 50);
-
-	if ( turn == true ) {
-		var element = element_coin_blue;
-	
-		
-
-		if ( x + element.style.top > 0 ) {
-			element_coin_blue.style.top = 0 + "px";
-		}
-		else {
-			element_coin_blue.style.top = element_coin_blue.style.top + x + "px";
-		}
-	
-	}
-
-	if ( turn == false ) {
-		var element = element_coin_red;
-	
-
-		if ( x + element.style.top > -50 ) {
-			element_coin_red.style.top = -50 + "px";
-		}
-		else {
-			element_coin_red.style.top = element_coin_red.style.top + x + "px";
-		}
-	
-	}
-
-
-}
 function Move_Left () {}
 function Move_Right () {}
 function Move_Down () {}
